@@ -9,27 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var username: UITextField!
-    @IBOutlet var password: UITextField!
+    @IBOutlet var usernameTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
     
     
-    @IBAction func usernameTextField(_ sender: Any) {
-        print(username.text)
+    @IBAction func usernameTextFieldAction(_ sender: Any) {
+        print("Login: \(usernameTextField.text ?? "") ")
     }
-    @IBAction func passwordTextField(_ sender: Any) {
-        print(password.text)
+    @IBAction func passwordTextFieldAction(_ sender: Any) {
+        print("Password: \(passwordTextField.text ?? "") ")
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        // функция trimmingCharacters удаляет пустые пространства
-        let usernameTrimmingText = username.text?.trimmingCharacters(in: .whitespaces)
         
-        UserSettings.userName = usernameTrimmingText
-        print(UserSettings.userName)
+        let username = usernameTextField.text
+        let password = passwordTextField.text
         
-        let passwordText = password.text
-        UserSettings.password = passwordText
-        print(UserSettings.password)
+        UserSettings.userName = username
+        print(UserSettings.userName ?? "")
+        UserSettings.password = password
+        print(UserSettings.password ?? "")
+        
+        saveUserLoginAndPasswordInFile()
         
     }
     
@@ -38,6 +39,31 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+}
 
+extension ViewController {
+        //MARK: - функция записывает данные 
+    func saveUserLoginAndPasswordInFile() {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)
+        guard let fileUrls = urls.first?.appendingPathComponent("users.txt") else {return}
+        let username = usernameTextField.text
+        let password = passwordTextField.text
+        let userDictionary = [username : password]
+        do {
+            let userData = try JSONEncoder().encode(userDictionary)
+            try userData.write(to: fileUrls)
+            print("Successfully saved: \(fileUrls)")
+        } catch  {
+            print("Saving error: \(error)")
+        }
+        
+        do {
+            let userDataFromFile = try Data(contentsOf: fileUrls)
+            print(userDictionary)
+        } catch  {
+             print("Error getting data: \(error)")
+        }
+    }
+    
 }
 

@@ -13,9 +13,23 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        var window = UIWindow()
+//        window = UIWindow()
+//        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+//        window?.makeKeyAndVisible()
+//
+//        if let rvc = self.window?.rootViewController {
+//            if UserDefaults.standard.object(forKey: ) as? String != nil {
+//                self.window?.rootViewController = rvc.storyboard!.instantiateViewController(withIdentifier: "SecondVC")
+//            } else {
+//                self.window?.rootViewController = rvc.storyboard!.instantiateViewController(withIdentifier: "LoginVC")
+//            }
+//        }
         return true
     }
 

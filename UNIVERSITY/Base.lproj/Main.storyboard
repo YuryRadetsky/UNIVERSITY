@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="iSt-Da-QbF">
             <objects>
-                <viewController id="5vC-m0-ZfU" customClass="ViewController" customModule="UNIVERSITY" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="5vC-m0-ZfU" customClass="ViewController" customModule="UNIVERSITY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Re2-Aa-dbJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,15 +27,16 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-OA-HQq">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your login" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-OA-HQq">
                                                 <rect key="frame" x="0.0" y="28.5" width="374" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="374" id="EK9-Pw-XMi"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="usernameTextField:" destination="5vC-m0-ZfU" eventType="editingDidEnd" id="6le-Ro-3Rb"/>
+                                                    <action selector="usernameTextFieldAction:" destination="5vC-m0-ZfU" eventType="editingDidEnd" id="6le-Ro-3Rb"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -49,31 +50,36 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRm-e2-8EO">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your password" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WRm-e2-8EO">
                                                 <rect key="frame" x="0.0" y="28.5" width="374" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="374" id="bmd-Nz-x65"/>
                                                 </constraints>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <connections>
-                                                    <action selector="passwordTextField:" destination="5vC-m0-ZfU" eventType="editingDidEnd" id="qDl-LA-s3C"/>
+                                                    <action selector="passwordTextFieldAction:" destination="5vC-m0-ZfU" eventType="editingDidEnd" id="qDl-LA-s3C"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TN-4d-wuF">
-                                <rect key="frame" x="130" y="360" width="154" height="30"/>
-                                <state key="normal" title="Sign-up"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TN-4d-wuF">
+                                <rect key="frame" x="130" y="360" width="154" height="35"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Save and Sign-in"/>
                                 <connections>
                                     <action selector="saveButton:" destination="5vC-m0-ZfU" eventType="touchUpInside" id="p9I-Fz-Rxd"/>
+                                    <segue destination="GM9-uJ-e9u" kind="show" id="t2U-w3-d1m"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2TN-4d-wuF" firstAttribute="centerX" secondItem="myQ-Tr-455" secondAttribute="centerX" id="2Ma-9W-CTr"/>
                             <constraint firstItem="2TN-4d-wuF" firstAttribute="top" secondItem="WRm-e2-8EO" secondAttribute="bottom" constant="29" id="3Re-Wl-Z4u"/>
                             <constraint firstItem="EhH-gQ-4jT" firstAttribute="leading" secondItem="myQ-Tr-455" secondAttribute="leading" constant="20" id="6gj-CJ-15w"/>
                             <constraint firstItem="myQ-Tr-455" firstAttribute="trailing" secondItem="2TN-4d-wuF" secondAttribute="trailing" constant="130" id="77x-5h-Ikf"/>
@@ -85,13 +91,38 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cj1-2I-sdE"/>
                     <connections>
-                        <outlet property="password" destination="WRm-e2-8EO" id="ro5-Zn-dwP"/>
-                        <outlet property="username" destination="SSu-OA-HQq" id="QZ9-K2-v1l"/>
+                        <outlet property="passwordTextField" destination="WRm-e2-8EO" id="ro5-Zn-dwP"/>
+                        <outlet property="usernameTextField" destination="SSu-OA-HQq" id="QZ9-K2-v1l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqP-Gm-sRt" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="137.94642857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vUm-bI-HGO">
+            <objects>
+                <viewController storyboardIdentifier="SecondVC" id="GM9-uJ-e9u" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B0C-iO-diO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VO6-uf-pCc">
+                                <rect key="frame" x="128" y="403" width="159" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="su0-6n-Uqo"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="az2-u2-970"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dfB-pm-rqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2937.68115942029" y="137.94642857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kjt-Et-UlB">

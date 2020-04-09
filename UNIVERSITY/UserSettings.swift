@@ -9,26 +9,26 @@
 import Foundation
 
 final class UserSettings {
-    // приватный enum, который будет хранить ключи
-    private enum SettingsKeys: String {
+    // enum, который будет хранить ключи
+     enum SettingsKeys: String {
         case userName
         case password
     }
     
     static var userName: String! {
         get {
-            // достаем значение из UserDefaults 
+            // достаем значение из UserDefaults
             return UserDefaults.standard.string(forKey: SettingsKeys.userName.rawValue)
         } set {
             let defaults = UserDefaults.standard
             let key = SettingsKeys.userName.rawValue
-            // получаем новое значенеи 
+            // получаем новое значенеи
             if let username = newValue {
-                print("value: \(username) was added to key \(key)")
+                print("Login: \(username) was added to key \(key)")
                 defaults.set(username, forKey: key)
                 
             } else {
-                // если не получилось достать новое значение (nil) , тогда удаляем у объекта defaults по ключу key
+                // если не получилось достать новое значение (nil), удаляем у объекта defaults по ключу key
                 defaults.removeObject(forKey: key)
             }
         }
@@ -42,10 +42,10 @@ final class UserSettings {
             let defaults = UserDefaults.standard
             let key = SettingsKeys.password.rawValue
             if let password = newValue {
-                print("value: \(password) was added to key \(key)")
+                print("Password: \(password) was added to key \(key)")
                 defaults.set(password, forKey: key)
             } else {
-                // если не получилось достать новое значение (nil) , тогда удаляем у объекта defaults по ключу key
+                // если не получилось достать новое значение (nil), удаляем у объекта defaults по ключу key
                 defaults.removeObject(forKey: key)
             }
         }
