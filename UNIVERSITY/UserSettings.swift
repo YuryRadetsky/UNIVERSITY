@@ -22,7 +22,7 @@ final class UserSettings {
         } set {
             let defaults = UserDefaults.standard
             let key = SettingsKeys.userName.rawValue
-            // получаем новое значенеи
+            // получаем новое значение
             if let username = newValue {
                 print("Login: \(username) was added to key \(key)")
                 defaults.set(username, forKey: key)

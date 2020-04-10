@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        NeworkManager().fechData()
     }
 
 }
@@ -55,13 +56,6 @@ extension ViewController {
             print("Successfully saved: \(fileUrls)")
         } catch  {
             print("Saving error: \(error)")
-        }
-        
-        do {
-            let userDataFromFile = try Data(contentsOf: fileUrls)
-            print(userDictionary)
-        } catch  {
-             print("Error getting data: \(error)")
         }
     }
     
