@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IqI-Yv-5Nu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G8a-Mc-6nU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -74,7 +74,6 @@
                                 <state key="normal" title="Save and Sign-in"/>
                                 <connections>
                                     <action selector="saveButton:" destination="5vC-m0-ZfU" eventType="touchUpInside" id="p9I-Fz-Rxd"/>
-                                    <segue destination="IqI-Yv-5Nu" kind="show" id="2cz-h3-DC1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -94,6 +93,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="WRm-e2-8EO" id="ro5-Zn-dwP"/>
                         <outlet property="usernameTextField" destination="SSu-OA-HQq" id="QZ9-K2-v1l"/>
+                        <segue destination="IqI-Yv-5Nu" kind="show" identifier="CollectionVC" id="nLX-JV-1fw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqP-Gm-sRt" sceneMemberID="firstResponder"/>

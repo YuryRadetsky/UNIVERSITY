@@ -30,6 +30,8 @@ class Authorization: UIViewController {
         print(UserSettings.password ?? "")
         
         saveUserLoginAndPasswordInFile()
+        isValid()
+//        isValid2()
         
     }
     
@@ -60,14 +62,50 @@ extension Authorization {
     
 }
 
+
+extension Authorization {
+    
+    func isValid() {
+        //условия для перехода к другому экрану (при нажатии на кнопку)
+        guard let login = usernameTextField.text,
+            let password = passwordTextField.text else { return }
+        // Alert for login
+        if login.count == 0 {
+            // Initialize Alert Controller
+            showAlert(title: "Incomplete Form", message: "Please fill out login fields.")
+        }
+        // Alert for password
+        if password.count == 0 {
+            // Initialize Alert Controller
+            showAlert(title: "Incomplete Form", message: "Please fill out password fields.")
+        }
+        // Alert for password
+        if password.count < 6 {
+            // Initialize Alert Controller
+            showAlert(title: "Alert", message: "Password must be at least 6 characters.")
+        }
+        performSegue(withIdentifier: "CollectionVC", sender: nil)
+    }
+    
+    func showAlert(title: String, message: String) {
+        // Initialize Alert Controller
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        // Initialize Actions
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        // Initialize Actions
+        alert.addAction(alertAction)
+        // Present Alert Controller
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
 //extension Authorization {
-//    func isValid() {
+//    func isValid2() {
 //        let login = usernameTextField.text
 //        let password = passwordTextField.text
 //
-//        if ((login?.isEmpty ) == nil) || (password?.isEmpty == nil) {
+//        if (login?.count == 0) || (password?.count == 0) {
 //            Alert().showAlert(title: "Incomplete Form", message: "Please fill out both login and password fields", viewController: self)
 //        }
 //    }
 //}
-
