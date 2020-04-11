@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class Authorization: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        
         let username = usernameTextField.text
         let password = passwordTextField.text
         
@@ -37,12 +36,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        NeworkManager().fechData()
+        NetworkManager().fechData()
     }
 
 }
 
-extension ViewController {
+extension Authorization {
         //MARK: - функция записывает данные 
     func saveUserLoginAndPasswordInFile() {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)
@@ -60,4 +59,15 @@ extension ViewController {
     }
     
 }
+
+//extension Authorization {
+//    func isValid() {
+//        let login = usernameTextField.text
+//        let password = passwordTextField.text
+//
+//        if ((login?.isEmpty ) == nil) || (password?.isEmpty == nil) {
+//            Alert().showAlert(title: "Incomplete Form", message: "Please fill out both login and password fields", viewController: self)
+//        }
+//    }
+//}
 

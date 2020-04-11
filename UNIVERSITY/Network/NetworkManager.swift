@@ -8,7 +8,10 @@
 
 import Foundation
 
-class NeworkManager {
+class NetworkManager {
+    
+    // в newArrayOfPerson будут полученные данные
+    var newArrayOfPerson: [PersonElement] = []
     
     func fechData() {
         let jsonUrlsString = "https://jsonplaceholder.typicode.com/users"
@@ -22,6 +25,10 @@ class NeworkManager {
                 let json = try JSONDecoder().decode(Person.self, from: data)
                 print("JSON count: \(json.count)")
                 print("JSON:\n \(json)")
+                
+                json.forEach { (person) in
+                    self.newArrayOfPerson.append(PersonElement(id: person.id, name: person.name, username: person.username, email: person.email, address: person.address, phone: person.phone, website: person.website, company: person.company))
+                }
                 
                 
             } catch let jsonErr {

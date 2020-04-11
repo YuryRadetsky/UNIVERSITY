@@ -9,29 +9,35 @@
 /* Begin PBXBuildFile section */
 		56073EE4243E01AD005D3649 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56073EE3243E01AD005D3649 /* AppDelegate.swift */; };
 		56073EE6243E01AD005D3649 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56073EE5243E01AD005D3649 /* SceneDelegate.swift */; };
-		56073EE8243E01AD005D3649 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56073EE7243E01AD005D3649 /* ViewController.swift */; };
+		56073EE8243E01AD005D3649 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56073EE7243E01AD005D3649 /* Authorization.swift */; };
 		56073EEB243E01AD005D3649 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56073EE9243E01AD005D3649 /* Main.storyboard */; };
 		56073EEE243E01AD005D3649 /* UNIVERSITY.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56073EEC243E01AD005D3649 /* UNIVERSITY.xcdatamodeld */; };
 		56073EF0243E01AE005D3649 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56073EEF243E01AE005D3649 /* Assets.xcassets */; };
 		56073EF3243E01AE005D3649 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56073EF1243E01AE005D3649 /* LaunchScreen.storyboard */; };
 		56073EFB243E268F005D3649 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56073EFA243E268F005D3649 /* UserSettings.swift */; };
+		56AF9B1B2441FB050025DBAB /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF9B1A2441FB050025DBAB /* CollectionViewController.swift */; };
+		56AF9B1D2441FD680025DBAB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF9B1C2441FD680025DBAB /* CollectionViewCell.swift */; };
 		56F210122440FD9C00BA0283 /* PersonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F210112440FD9C00BA0283 /* PersonElement.swift */; };
 		56F210142440FF2A00BA0283 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F210132440FF2A00BA0283 /* NetworkManager.swift */; };
+		56F210192441E2D400BA0283 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F210182441E2D400BA0283 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		56073EE0243E01AD005D3649 /* UNIVERSITY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UNIVERSITY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56073EE3243E01AD005D3649 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56073EE5243E01AD005D3649 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		56073EE7243E01AD005D3649 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		56073EE7243E01AD005D3649 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		56073EEA243E01AD005D3649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56073EED243E01AD005D3649 /* UNIVERSITY.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UNIVERSITY.xcdatamodel; sourceTree = "<group>"; };
 		56073EEF243E01AE005D3649 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56073EF2243E01AE005D3649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56073EF4243E01AE005D3649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56073EFA243E268F005D3649 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		56AF9B1A2441FB050025DBAB /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		56AF9B1C2441FD680025DBAB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		56F210112440FD9C00BA0283 /* PersonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonElement.swift; sourceTree = "<group>"; };
 		56F210132440FF2A00BA0283 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		56F210182441E2D400BA0283 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +72,11 @@
 			children = (
 				56073EE3243E01AD005D3649 /* AppDelegate.swift */,
 				56073EE5243E01AD005D3649 /* SceneDelegate.swift */,
-				56073EE7243E01AD005D3649 /* ViewController.swift */,
+				56073EE7243E01AD005D3649 /* Authorization.swift */,
 				56073EFA243E268F005D3649 /* UserSettings.swift */,
+				56F210182441E2D400BA0283 /* Alert.swift */,
+				56AF9B1A2441FB050025DBAB /* CollectionViewController.swift */,
+				56AF9B1C2441FD680025DBAB /* CollectionViewCell.swift */,
 				56F2101524410D7000BA0283 /* Network */,
 				56073EE9243E01AD005D3649 /* Main.storyboard */,
 				56073EF1243E01AE005D3649 /* LaunchScreen.storyboard */,
@@ -158,7 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56073EE8243E01AD005D3649 /* ViewController.swift in Sources */,
+				56AF9B1D2441FD680025DBAB /* CollectionViewCell.swift in Sources */,
+				56AF9B1B2441FB050025DBAB /* CollectionViewController.swift in Sources */,
+				56F210192441E2D400BA0283 /* Alert.swift in Sources */,
+				56073EE8243E01AD005D3649 /* Authorization.swift in Sources */,
 				56073EEE243E01AD005D3649 /* UNIVERSITY.xcdatamodeld in Sources */,
 				56073EE4243E01AD005D3649 /* AppDelegate.swift in Sources */,
 				56F210142440FF2A00BA0283 /* NetworkManager.swift in Sources */,
