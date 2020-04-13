@@ -10,6 +10,8 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet var id: UILabel!
+    @IBOutlet var name: UILabel!
     @IBOutlet var username: UILabel!
+    @IBOutlet var company: UILabel!
     
 }

@@ -29,27 +29,28 @@ class Authorization: UIViewController {
         UserSettings.password = password
         print(UserSettings.password ?? "")
         
-        saveUserLoginAndPasswordInFile()
-        isValid()
-//        isValid2()
+        saveUserLoginAndPasswordInFile(login: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
+        isValid(login: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        NetworkManager().fechData()
+//        NetworkManager.shared.fechData()
     }
-
+    
 }
 
 extension Authorization {
-        //MARK: - функция записывает данные 
-    func saveUserLoginAndPasswordInFile() {
+    //MARK: - функция записывает данные
+    func saveUserLoginAndPasswordInFile(login: String, password: String) {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)
         guard let fileUrls = urls.first?.appendingPathComponent("users.txt") else {return}
-        let username = usernameTextField.text
-        let password = passwordTextField.text
+        //        let username = usernameTextField.text
+        //        let password = passwordTextField.text
+        let username = login
+        let password = password
         let userDictionary = [username : password]
         do {
             let userData = try JSONEncoder().encode(userDictionary)
@@ -65,47 +66,26 @@ extension Authorization {
 
 extension Authorization {
     
-    func isValid() {
+    func isValid(login: String, password: String) {
         //условия для перехода к другому экрану (при нажатии на кнопку)
-        guard let login = usernameTextField.text,
-            let password = passwordTextField.text else { return }
         // Alert for login
         if login.count == 0 {
             // Initialize Alert Controller
-            showAlert(title: "Incomplete Form", message: "Please fill out login fields.")
+            Alert().showAlert(title: "Incomplete Form", message: "Please fill out login fields.", viewController: self)
         }
         // Alert for password
         if password.count == 0 {
             // Initialize Alert Controller
-            showAlert(title: "Incomplete Form", message: "Please fill out password fields.")
+            Alert().showAlert(title: "Incomplete Form", message: "Please fill out password fields.", viewController: self)
         }
         // Alert for password
         if password.count < 6 {
             // Initialize Alert Controller
-            showAlert(title: "Alert", message: "Password must be at least 6 characters.")
+            Alert().showAlert(title: "Alert", message: "Password must be at least 6 characters.", viewController: self)
         }
-        performSegue(withIdentifier: "CollectionVC", sender: nil)
-    }
-    
-    func showAlert(title: String, message: String) {
-        // Initialize Alert Controller
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        // Initialize Actions
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        // Initialize Actions
-        alert.addAction(alertAction)
-        // Present Alert Controller
-        self.present(alert, animated: true, completion: nil)
+        
+        if login.count > 0 || password.count > 6 {
+            performSegue(withIdentifier: "PersonsCollectionVC", sender: nil)
+        } else {}
     }
 }
-
-//extension Authorization {
-//    func isValid2() {
-//        let login = usernameTextField.text
-//        let password = passwordTextField.text
-//
-//        if (login?.count == 0) || (password?.count == 0) {
-//            Alert().showAlert(title: "Incomplete Form", message: "Please fill out both login and password fields", viewController: self)
-//        }
-//    }
-//}
