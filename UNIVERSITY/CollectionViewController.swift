@@ -11,7 +11,7 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
     
-    let reuseIdentifier = "Cell"
+    let cellID = "Cell"
     var personsArray = NetworkManager.shared.array
     
     override func viewDidLoad() {
@@ -21,10 +21,10 @@ class CollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         // Register cell classes
-        self.collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         
         // Do any additional setup after loading the view.
-        NetworkManager().fechData()
+        NetworkManager().fechData(url: NetworkManager.shared.jsonUrlsString)
         print("\(personsArray.count)")
                 
     }
@@ -40,25 +40,17 @@ class CollectionViewController: UICollectionViewController {
      */
     
     // MARK: UICollectionViewDataSource
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
     
     //количество элементов, которые находятся в одной секции
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        //        return array.count
         return personsArray.count
-        
-        
     }
     
     //создаем ячейку, где указываем все ее характеристики и при  загрузки значение ячейки берется из этого метода
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // создали отдельный класс для нашей ячейки в файле CollectionViewCell и обратились к нему при помощи "as! CollectionViewCell"
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CollectionViewCell
         
         // Configure the cell
         cell.name.text = personsArray[indexPath.row].name

@@ -11,11 +11,12 @@ import Foundation
 class NetworkManager {
     static let shared =  NetworkManager()
 
+    let jsonUrlsString = "https://jsonplaceholder.typicode.com/users"
     var array = [PersonElement]()
+    
 //   func fechData(completion: @escaping ([PersonElement]) -> Void){}
-    func fechData() {
-        let jsonUrlsString = "https://jsonplaceholder.typicode.com/users"
-        guard let url = URL(string: jsonUrlsString) else {return}
+    func fechData(url: String) {
+        guard let url = URL(string: url) else {return}
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else {return}
             guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {return}
