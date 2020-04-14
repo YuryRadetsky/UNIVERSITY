@@ -2,20 +2,19 @@
 //  NetworkManager.swift
 //  UNIVERSITY
 //
-//  Created by Yury Radetsky on 10.04.2020.
+//  Created by Yury Radetsky on 14.04.2020.
 //  Copyright © 2020 YuryRadetsky. All rights reserved.
 //
 
 import Foundation
 
 class NetworkManager {
-    static let shared =  NetworkManager()
-
-    let jsonUrlsString = "https://jsonplaceholder.typicode.com/users"
-    var array = [PersonElement]()
+    static let shared = NetworkManager()
     
-//   func fechData(completion: @escaping ([PersonElement]) -> Void){}
-    func fechData(url: String) {
+    let jsonUrlsString = "https://jsonplaceholder.typicode.com/users"
+    var personsArray = [PersonElement]()
+    
+    func fechData(url: String, completion: @escaping() -> Void) {
         guard let url = URL(string: url) else {return}
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else {return}
@@ -28,11 +27,11 @@ class NetworkManager {
                 print("JSON:\n \(json)")
                 
                 json.forEach { (person) in
-                    self.array.append(PersonElement(id: person.id, name: person.name, username: person.username, email: person.email, address: person.address, phone: person.phone, website: person.website, company: person.company))
+                    self.personsArray.append(PersonElement(id: person.id, name: person.name, username: person.username, email: person.email, address: person.address, phone: person.phone, website: person.website, company: person.company))
                 }
+                
                 DispatchQueue.main.async {
-//                    completion(self.array)
-                    self.array
+                    completion()
                 }
                 
             } catch let jsonErr {
@@ -40,5 +39,4 @@ class NetworkManager {
             }
         }.resume()
     }
-    
 }

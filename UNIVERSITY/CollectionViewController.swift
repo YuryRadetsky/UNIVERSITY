@@ -12,7 +12,7 @@ import UIKit
 class CollectionViewController: UICollectionViewController {
     
     let cellID = "Cell"
-    var personsArray = NetworkManager.shared.array
+    var network = NetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,13 @@ class CollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         // Register cell classes
-        self.collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        self.collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         
         // Do any additional setup after loading the view.
-        NetworkManager().fechData(url: NetworkManager.shared.jsonUrlsString)
-        print("\(personsArray.count)")
+//        fechData(url: jsonUrlsString, completion: {self.collectionView.reloadData()})
+        NetworkManager.shared.fechData(url: NetworkManager.shared.jsonUrlsString, completion: {
+            print("_____________________ CollectionViewController count \(self.network.personsArray.count)")
+            self.collectionView.reloadData()})
                 
     }
     
@@ -44,7 +46,7 @@ class CollectionViewController: UICollectionViewController {
     //количество элементов, которые находятся в одной секции
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return personsArray.count
+        return NetworkManager.shared.personsArray.count
     }
     
     //создаем ячейку, где указываем все ее характеристики и при  загрузки значение ячейки берется из этого метода
@@ -53,9 +55,9 @@ class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CollectionViewCell
         
         // Configure the cell
-        cell.name.text = personsArray[indexPath.row].name
-        cell.username.text = personsArray[indexPath.row].username
-        cell.company.text = personsArray[indexPath.row].company.name
+//        cell.name.text = network.personsArray[indexPath.row].name
+//        cell.username.text = network.personsArray[indexPath.row].username
+//        cell.company.text = network.personsArray[indexPath.row].company.name
         
         cell.backgroundColor = .systemYellow
         
