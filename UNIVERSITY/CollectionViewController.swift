@@ -58,6 +58,8 @@ class CollectionViewController: UICollectionViewController {
 //        cell.name.text = network.personsArray[indexPath.row].name
 //        cell.username.text = network.personsArray[indexPath.row].username
 //        cell.company.text = network.personsArray[indexPath.row].company.name
+        cell.namePerson.text = network.personsArray[indexPath.row].name
+        cell.companyPerson.text = network.personsArray[indexPath.row].company.name
         
         cell.backgroundColor = .systemYellow
         
