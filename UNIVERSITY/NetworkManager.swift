@@ -14,21 +14,18 @@ class NetworkManager {
     let jsonUrlsString = "https://jsonplaceholder.typicode.com/users"
     var personsArray = [PersonElement]()
     
-    func fechData(url: String, completion: @escaping() -> Void) {
-        guard let url = URL(string: url) else {return}
+    func fechData(url: String, completion: @escaping() -> Void) -> [PersonElement] {
+        guard let url = URL(string: url) else {return []}
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else {return}
             guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {return}
             guard error == nil else {return}
             
             do {
-                let json = try JSONDecoder().decode([PersonElement].self, from: data)
-                print("JSON count: \(json.count)")
-                print("JSON:\n \(json)")
+                self.personsArray = try JSONDecoder().decode([PersonElement].self, from: data)
+                print("JSON count: \(self.personsArray.count)")
+                print("JSON:\n \(self.personsArray)")
                 
-                json.forEach { (person) in
-                    self.personsArray.append(PersonElement(id: person.id, name: person.name, username: person.username, email: person.email, address: person.address, phone: person.phone, website: person.website, company: person.company))
-                }
                 
                 DispatchQueue.main.async {
                     completion()
@@ -38,5 +35,6 @@ class NetworkManager {
                 print("Error serializing json:", jsonErr)
             }
         }.resume()
+        return personsArray
     }
 }

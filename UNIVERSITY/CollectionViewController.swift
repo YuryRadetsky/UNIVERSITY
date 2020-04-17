@@ -24,11 +24,15 @@ class CollectionViewController: UICollectionViewController {
         self.collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         
         // Do any additional setup after loading the view.
-//        fechData(url: jsonUrlsString, completion: {self.collectionView.reloadData()})
-        NetworkManager.shared.fechData(url: NetworkManager.shared.jsonUrlsString, completion: {
-            print("_____________________ CollectionViewController count \(self.network.personsArray.count)")
-            self.collectionView.reloadData()})
-                
+        
+        //        NetworkManager.shared.fechData(url: NetworkManager.shared.jsonUrlsString, completion: {
+        //            print("_____________________ CollectionViewController count \(self.network.personsArray.count)")
+        //            self.collectionView.reloadData()})
+        network.fechData(url: network.jsonUrlsString) {
+            print("_________CollectionViewController count \(self.network.personsArray.count)_________")
+            self.collectionView.reloadData()
+        }
+        
     }
     
     /*
@@ -55,9 +59,9 @@ class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CollectionViewCell
         
         // Configure the cell
-//        cell.name.text = network.personsArray[indexPath.row].name
-//        cell.username.text = network.personsArray[indexPath.row].username
-//        cell.company.text = network.personsArray[indexPath.row].company.name
+        //        cell.name.text = network.personsArray[indexPath.row].name
+        //        cell.username.text = network.personsArray[indexPath.row].username
+        //        cell.company.text = network.personsArray[indexPath.row].company.name
         cell.namePerson.text = network.personsArray[indexPath.row].name
         cell.companyPerson.text = network.personsArray[indexPath.row].company.name
         
