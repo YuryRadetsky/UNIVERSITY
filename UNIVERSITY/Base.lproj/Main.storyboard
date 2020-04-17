@@ -82,6 +82,18 @@
                                     <constraint firstAttribute="width" constant="100" id="YSK-Hb-wyb"/>
                                 </constraints>
                             </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="acD-Ro-fY8">
+                                <rect key="frame" x="60" y="454" width="294" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Light"/>
+                                    <segment title="Dark"/>
+                                    <segment title="Default"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentTapped:" destination="5vC-m0-ZfU" eventType="valueChanged" id="dHe-UJ-4ol"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -101,6 +113,7 @@
                     <navigationItem key="navigationItem" id="Cj1-2I-sdE"/>
                     <connections>
                         <outlet property="passwordTextField" destination="WRm-e2-8EO" id="ro5-Zn-dwP"/>
+                        <outlet property="segmentedControl" destination="acD-Ro-fY8" id="yU2-XG-nLF"/>
                         <outlet property="usernameTextField" destination="SSu-OA-HQq" id="QZ9-K2-v1l"/>
                         <segue destination="IqI-Yv-5Nu" kind="show" identifier="PersonsCollectionVC" id="nLX-JV-1fw"/>
                     </connections>

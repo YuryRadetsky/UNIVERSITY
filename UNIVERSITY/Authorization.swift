@@ -11,6 +11,7 @@ import UIKit
 class Authorization: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var segmentedControl: UISegmentedControl!
     
     
     @IBAction func usernameTextFieldAction(_ sender: Any) {
@@ -31,13 +32,29 @@ class Authorization: UIViewController {
         
         saveUserLoginAndPasswordInFile(login: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
         isValid(login: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
+    }
+    
+    //segmentTapped - выбирает тему приложения
+    @IBAction func segmentTapped(_ sender: Any) {
+        let getIndex = segmentedControl.selectedSegmentIndex
+        switch getIndex {
+        case 0:
+            parent?.overrideUserInterfaceStyle = .light
+        case 1:
+            parent?.overrideUserInterfaceStyle = .dark
+        case 2:
+            parent?.overrideUserInterfaceStyle = .unspecified
+        default:
+            print("no select")
+        }
         
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        NetworkManager.shared.fechData()
+        //        NetworkManager.shared.fechData()
     }
     
 }
