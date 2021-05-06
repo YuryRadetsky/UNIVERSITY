@@ -8,26 +8,25 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+final class CollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet var id: UILabel!
     @IBOutlet var name: UILabel!
     @IBOutlet var username: UILabel!
     @IBOutlet var company: UILabel!
     
-    
-    //
     var namePerson: UILabel = {
-        let namePerson = UILabel()
-        namePerson.font = namePerson.font.withSize(25)
-        namePerson.translatesAutoresizingMaskIntoConstraints = false
-        return namePerson
+        let label = UILabel()
+        label.font = label.font.withSize(25)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     var companyPerson: UILabel = {
-        let companyPerson = UILabel()
-        companyPerson.font = companyPerson.font.withSize(15)
-        companyPerson.translatesAutoresizingMaskIntoConstraints = false
-        return companyPerson
+        let label = UILabel()
+        label.font = label.font.withSize(15)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -39,9 +38,7 @@ class CollectionViewCell: UICollectionViewCell {
         addSubview(companyPerson)
         companyPerson.topAnchor.constraint(equalTo: namePerson.bottomAnchor, constant: 10).isActive = true
         companyPerson.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

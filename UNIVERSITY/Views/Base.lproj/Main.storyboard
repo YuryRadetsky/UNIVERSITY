@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G8a-Mc-6nU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zw2-PW-FD1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -82,18 +82,6 @@
                                     <constraint firstAttribute="width" constant="100" id="YSK-Hb-wyb"/>
                                 </constraints>
                             </imageView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="acD-Ro-fY8">
-                                <rect key="frame" x="60" y="454" width="294" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Light"/>
-                                    <segment title="Dark"/>
-                                    <segment title="Default"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentTapped:" destination="5vC-m0-ZfU" eventType="valueChanged" id="dHe-UJ-4ol"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -110,7 +98,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="myQ-Tr-455"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Cj1-2I-sdE"/>
+                    <navigationItem key="navigationItem" id="Cj1-2I-sdE">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="acD-Ro-fY8">
+                            <rect key="frame" x="111.5" y="6" width="191" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Light"/>
+                                <segment title="Dark"/>
+                                <segment title="Default"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentTapped:" destination="5vC-m0-ZfU" eventType="valueChanged" id="dHe-UJ-4ol"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="passwordTextField" destination="WRm-e2-8EO" id="ro5-Zn-dwP"/>
                         <outlet property="segmentedControl" destination="acD-Ro-fY8" id="yU2-XG-nLF"/>
@@ -288,7 +290,47 @@
             </objects>
             <point key="canvasLocation" x="3665" y="138"/>
         </scene>
+        <!--Authorization Stack View-->
+        <scene sceneID="cO1-6K-irJ">
+            <objects>
+                <viewController id="KSx-CK-g3J" customClass="AuthorizationStackView" customModule="UNIVERSITY" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qVh-o2-9sV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3FN-gE-f5L"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oyL-Zp-5GZ"/>
+                    <connections>
+                        <segue destination="IqI-Yv-5Nu" kind="show" identifier="NewPersonsCollectionVC" id="WFh-gN-eId"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5F-1b-aet" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1958" y="872"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CJr-4T-1n4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zw2-PW-FD1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T7F-ZH-Tng">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KSx-CK-g3J" kind="relationship" relationship="rootViewController" id="spZ-VD-8JT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wO-47-1bL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="872"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nLX-JV-1fw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="swift" width="256" height="256"/>
     </resources>

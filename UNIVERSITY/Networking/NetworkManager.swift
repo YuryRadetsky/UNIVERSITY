@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager()
     
     let jsonUrlsString = "https://jsonplaceholder.typicode.com/users"
@@ -23,10 +23,6 @@ class NetworkManager {
             
             do {
                 self.personsArray = try JSONDecoder().decode([PersonElement].self, from: data)
-                print("JSON count: \(self.personsArray.count)")
-                print("JSON:\n \(self.personsArray)")
-                
-                
                 DispatchQueue.main.async {
                     completion()
                 }
